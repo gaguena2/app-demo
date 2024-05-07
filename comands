@@ -1,0 +1,13 @@
+docker build -t app-demo-new .
+
+docker run -d --name app-demo -p 3000:3000 app-demo-new
+
+
+kind load docker-image app-demo-new --name kind-multinodes
+
+OBS: imagePullPolicy: Always mo deployment para o kind funcionar
+kubectl run app-demo-new --image=appdemo-new --image-pull-policy=Never
+
+kubectl create namespace nodejs-app
+
+kubectl apply -f kubernetes/app-demo-deployment.yaml
