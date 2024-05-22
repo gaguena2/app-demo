@@ -3,7 +3,7 @@ docker build -t app-demo-new .
 docker run -d --name app-demo -p 3000:3000 app-demo-new
 
 
-kind load docker-image app-demo-new --name kind-multinodes
+kind load docker-image app-demo-new --name kind-kind
 
 OBS: imagePullPolicy: Always mo deployment para o kind funcionar
 kubectl run app-demo-new --image=appdemo-new --image-pull-policy=Never
